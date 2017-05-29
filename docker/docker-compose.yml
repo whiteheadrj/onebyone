@@ -1,0 +1,117 @@
+
+version: '3'
+
+
+################################################################################
+# SERVICES
+################################################################################
+services:
+
+    # ----------------------------------------
+    # Apache
+    # ----------------------------------------
+    httpd:
+        image: httpd:2.4
+
+        container_name: httpd
+
+        links:
+            - php53-fpm
+
+        ports:
+            - 80:80
+
+        restart: always
+
+        volumes:
+            - ${SOURCE_CODE_DIRECTORY}:/usr/local/apache2/htdocs/
+            - ./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
+
+        depends_on:
+            - php53-fpm
+
+    # ----------------------------------------
+    # DATABASE
+    # ----------------------------------------
+    mysql:
+        image: mysql:5.6
+
+        container_name: mysql
+
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+
+        ports:
+            - 3306:3306
+
+        restart: always
+
+        volumes:
+            - ./mysql-data:/var/lib/mysql
+
+    # ----------------------------------------
+    # phpmyadmin
+    # ----------------------------------------
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+    
+        container_name: phpmyadmin
+    
+        environment:
+          - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+          - PMA_HOST=mysql
+          - PMA_PORT=3306
+        
+        links:
+          - mysql:db
+
+        restart: always
+        
+        ports:
+          - 8080:80
+
+        volumes:
+          - /sessions
+          - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+
+        depends_on:
+            - mysql
+
+    # ----------------------------------------
+    # php-fpm
+    # ----------------------------------------
+    php53-fpm:
+        build: ./php53-fpm
+    
+        container_name: php53-fpm
+
+        environment:
+            - MYSQL_ROOT_USER=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_WEB_USER=${MYSQL_WEB_USER}
+            - MYSQL_WEB_PASSWORD=${MYSQL_WEB_PASSWORD}
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_HOST=db
+
+        restart: always
+        
+        links:
+          - mysql:db
+
+        ports:
+          - 10000:9000
+
+        volumes:
+            - ${SOURCE_CODE_DIRECTORY}:/var/www/localhost
+            - ${SOURCE_CODE_DIRECTORY}:/www
+
+        working_dir: /usr/src/myapp
+
+
+################################################################################
+# NETWORK
+################################################################################
+networks:
+  default:
+    driver: bridge
