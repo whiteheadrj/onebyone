@@ -70,6 +70,7 @@ $unassigned = array_diff($unassigned, $ntList);
             <li><a href="/teachers.php">Select Teachers</a></li>
             <li><a href="/companionships.php">Assign Companionship</a></li>
             <li class="active"><a href="/individuals.php">Assign Individuals</a></li>
+            <li><a href="/currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

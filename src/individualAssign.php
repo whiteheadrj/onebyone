@@ -5,7 +5,7 @@ include 'models/MemberManager.php';
 include 'models/TeacherManager.php';
 include 'models/CompanionshipManager.php';
 include 'models/DistanceManager.php';
-include 'models/CompanionshipDistanceManager.php';
+include 'models/IndividualCompanionshipDistanceManager.php';
 include 'models/AssignmentsManager.php';
 $mngr = new MemberManager();
 $tmngr = new TeacherManager();
@@ -19,7 +19,7 @@ $assignee = $mngr->getMemberByID($_REQUEST['id']);
 $distances = $dmngr->getSortedDistancesForID($_REQUEST['id']);
 $companionships = $cmngr->getCompanionships();
 
-$cdMngr = new CompanionshipDistanceManager($distances, $companionships);
+$cdMngr = new IndividualCompanionshipDistanceManager($distances, $companionships);
 $companionshipDistances = $cdMngr->computeDistances();
 
 $cmapData = array();
@@ -112,6 +112,7 @@ $conversion = array(
             <li><a href="/teachers.php">Select Teachers</a></li>
             <li><a href="/companionships.php">Assign Companionship</a></li>
             <li class="active"><a href="/individuals.php">Assign Individuals</a></li>
+            <li><a href="/currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -669,7 +670,6 @@ if (!empty($assignee->Lat)) {
         L.MakiMarkers.accessToken = "pk.eyJ1Ijoid2hpdGVoZWFkcmoyIiwiYSI6ImNqMnl1ZTE2ZDAwM3IycXByZXNya3N1OXgifQ.nMcG7PmGB-S1p3qNzerR0A";
         var icon = L.MakiMarkers.icon({color: "#b0b", size: "m"});
         var mymap = L.map('cmap-'+data.key);
-        console.log(getBoundsArray(data.viewport));
         mymap.fitBounds(getBoundsArray(data.viewport));
         L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',

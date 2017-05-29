@@ -44,4 +44,44 @@ class DistanceManager
             }
         }
     }
+
+    public function getSortedAvgDistanceFromComp($companions, $teachees)
+    {
+        $sorted = array();
+        foreach ($teachees as $id) {
+            $sorted[$id] = $this->computeAverage($companions, $id);
+        }
+        asort($sorted);
+
+        return $sorted;
+    }
+
+    private function computeAverage($companions, $id)
+    {
+        $count = 0;
+        $total = 0;
+        foreach ($companions as $cID) {
+            $value = $this->getDistanceBetweenIDs($id, $cID);
+            if ($value !== null) {
+                ++$count;
+                $total += $value;
+            }
+        }
+        if ($count === 0) {
+            return 'NA';
+        }
+
+        return $total / $count;
+    }
+
+    public function getDistanceBetweenIDs($id1, $id2)
+    {
+        if (array_key_exists($id1.'-'.$id2, $this->distances)) {
+            return $this->distances[$id1.'-'.$id2];
+        } elseif (array_key_exists($id2.'-'.$id1, $this->distances)) {
+            return $this->distances[$id2.'-'.$id1];
+        }
+
+        return null;
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class CompanionshipDistanceManager
+class IndividualCompanionshipDistanceManager
 {
     private $distances = array();
     private $companionships = array();
