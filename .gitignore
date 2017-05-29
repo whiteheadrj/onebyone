@@ -2,3 +2,6 @@ src/data/*
 src/photos/*
 docker/mysql-data/*
 docker/.env
+!src/data/.gitignore
+!src/photos/.gitignore
+!docker/mysql-data/.gitignore
