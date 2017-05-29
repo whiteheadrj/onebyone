@@ -64,7 +64,7 @@ function printPotentialAssignee($id, $distance)
     echo '</td>';
     echo '<td>'.$distance.'</td>';
     echo '<td>'.$companionNames.'</td>';
-    echo '<td><a class="btn btn-default" href="companionshipSave.php?action=addComp&amp;assignee='.$_REQUEST['id'].'&amp;comp='.$id.'">Assign</a></td>';
+    echo '<td><a class="btn btn-default" href="./companionshipSave.php?action=addComp&amp;assignee='.$_REQUEST['id'].'&amp;comp='.$id.'">Assign</a></td>';
     echo '</tr>';
 }
 ?>
@@ -138,12 +138,12 @@ function printPotentialAssignee($id, $distance)
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="/notTeaching.php">Not Teaching</a></li>
-            <li><a href="/teachers.php">Select Teachers</a></li>
-            <li class="active"><a href="/companionships.php">Assign Companionship</a></li>
-            <li><a href="/individuals.php">Assign Individuals</a></li>
-            <li><a href="/currentAssignments.php">Current Assignments</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./notTeaching.php">Not Teaching</a></li>
+            <li><a href="./teachers.php">Select Teachers</a></li>
+            <li class="active"><a href="./companionships.php">Assign Companionship</a></li>
+            <li><a href="./individuals.php">Assign Individuals</a></li>
+            <li><a href="./currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

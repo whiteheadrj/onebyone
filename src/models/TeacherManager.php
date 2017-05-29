@@ -2,7 +2,7 @@
 
 class TeacherManager
 {
-    const PATH = '/var/www/localhost/data/teachers.json';
+    const PATH = '../data/teachers.json';
 
     private $teachers = array();
     public function __construct()
@@ -10,10 +10,15 @@ class TeacherManager
         $this->load();
     }
 
+    private function getFullPath($path)
+    {
+        return __DIR__.'/'.$path;
+    }
+
     private function load()
     {
-        if (file_exists(self::PATH)) {
-            $jsonString = file_get_contents(self::PATH);
+        if (file_exists($this->getFullPath(self::PATH))) {
+            $jsonString = file_get_contents($this->getFullPath(self::PATH));
             if ($jsonString !== false) {
                 $this->teachers = json_decode($jsonString, true);
             }
@@ -41,7 +46,7 @@ class TeacherManager
 
     public function save()
     {
-        file_put_contents(self::PATH, json_encode($this->teachers));
+        file_put_contents($this->getFullPath(self::PATH), json_encode($this->teachers));
     }
 
     public function countOfTeachers()

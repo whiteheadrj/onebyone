@@ -65,12 +65,12 @@ $unassigned = array_diff($unassigned, $ntList);
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="/notTeaching.php">Not Teaching</a></li>
-            <li><a href="/teachers.php">Select Teachers</a></li>
-            <li><a href="/companionships.php">Assign Companionship</a></li>
-            <li class="active"><a href="/individuals.php">Assign Individuals</a></li>
-            <li><a href="/currentAssignments.php">Current Assignments</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./notTeaching.php">Not Teaching</a></li>
+            <li><a href="./teachers.php">Select Teachers</a></li>
+            <li><a href="./companionships.php">Assign Companionship</a></li>
+            <li class="active"><a href="./individuals.php">Assign Individuals</a></li>
+            <li><a href="./currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -111,7 +111,7 @@ if (!empty($sort) && !empty($unassigned)) {
                 echo '<td>&nbsp;</td>';
             }
             echo '<td scope="row">'.$mngr->getMemberByID($id)->Name.'</td>';
-            echo '<td><a class="btn btn-default" href="individualAssign.php?id='.$id.'">Assign</a></td>';
+            echo '<td><a class="btn btn-default" href="./individualAssign.php?id='.$id.'">Assign</a></td>';
             echo '</tr>';
         }
     }
@@ -157,8 +157,8 @@ if (!empty($assigned)) {
             }
             echo '<td scope="row">'.$mngr->getMemberByID($id)->Name.'</td>';
             echo '<td scope="row">'.$mngr->getMemberNamesByIDArray($companionships[$companionshipID]).'</td>';
-            echo '<td><a class="btn btn-default" href="individualAssign.php?id='.$id.'">Reassign</a></td>';
-            echo '<td><a class="btn btn-default" href="individualAssignSave.php?action=unassign&amp;id='.$id.'">Unassign</a></td>';
+            echo '<td><a class="btn btn-default" href="./individualAssign.php?id='.$id.'">Reassign</a></td>';
+            echo '<td><a class="btn btn-default" href="./individualAssignSave.php?action=unassign&amp;id='.$id.'">Unassign</a></td>';
             echo '</tr>';
         }
     }

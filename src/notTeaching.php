@@ -56,12 +56,12 @@ $ntReasons = $ntMngr->getReasons();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li class="active"><a href="/notTeaching.php">Not Teaching</a></li>
-            <li><a href="/teachers.php">Select Teachers</a></li>
-            <li><a href="/companionships.php">Assign Companionship</a></li>
-            <li><a href="/individuals.php">Assign Individuals</a></li>
-            <li><a href="/currentAssignments.php">Current Assignments</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li class="active"><a href="./notTeaching.php">Not Teaching</a></li>
+            <li><a href="./teachers.php">Select Teachers</a></li>
+            <li><a href="./companionships.php">Assign Companionship</a></li>
+            <li><a href="./individuals.php">Assign Individuals</a></li>
+            <li><a href="./currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

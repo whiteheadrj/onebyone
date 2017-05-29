@@ -2,8 +2,8 @@
 
 class NotTeachingManager
 {
-    const PATH = '/var/www/localhost/data/notTeaching.json';
-    const PATH2 = '/var/www/localhost/data/notTeachingReasons.json';
+    const PATH = '../data/notTeaching.json';
+    const PATH2 = '../data/notTeachingReasons.json';
 
     private $notTeaching = array();
     private $notTeachingReasons = array();
@@ -12,16 +12,21 @@ class NotTeachingManager
         $this->load();
     }
 
+    private function getFullPath($path)
+    {
+        return __DIR__.'/'.$path;
+    }
+
     private function load()
     {
-        if (file_exists(self::PATH)) {
-            $jsonString = file_get_contents(self::PATH);
+        if (file_exists($this->getFullPath(self::PATH))) {
+            $jsonString = file_get_contents($this->getFullPath(self::PATH));
             if ($jsonString !== false) {
                 $this->notTeaching = json_decode($jsonString, true);
             }
         }
-        if (file_exists(self::PATH2)) {
-            $jsonString = file_get_contents(self::PATH2);
+        if (file_exists($this->getFullPath(self::PATH2))) {
+            $jsonString = file_get_contents($this->getFullPath(self::PATH2));
             if ($jsonString !== false) {
                 $this->notTeachingReasons = json_decode($jsonString, true);
             }
@@ -58,8 +63,8 @@ class NotTeachingManager
 
     public function save()
     {
-        file_put_contents(self::PATH, json_encode($this->notTeaching));
-        file_put_contents(self::PATH2, json_encode($this->notTeachingReasons));
+        file_put_contents($this->getFullPath(self::PATH), json_encode($this->notTeaching));
+        file_put_contents($this->getFullPath(self::PATH2), json_encode($this->notTeachingReasons));
     }
 
     public function countOf()

@@ -2,7 +2,7 @@
 
 class AssignmentsManager
 {
-    const PATH = '/var/www/localhost/data/assignments.json';
+    const PATH = '../data/assignments.json';
 
     private $assignments = array();
     public function __construct()
@@ -10,10 +10,15 @@ class AssignmentsManager
         $this->load();
     }
 
+    private function getFullPath($path)
+    {
+        return __DIR__.'/'.$path;
+    }
+
     private function load()
     {
-        if (file_exists(self::PATH)) {
-            $jsonString = file_get_contents(self::PATH);
+        if (file_exists($this->getFullPath(self::PATH))) {
+            $jsonString = file_get_contents($this->getFullPath(self::PATH));
             if ($jsonString !== false) {
                 $this->assignments = json_decode($jsonString, true);
             }
@@ -43,7 +48,7 @@ class AssignmentsManager
 
     public function save()
     {
-        file_put_contents(self::PATH, json_encode($this->assignments));
+        file_put_contents($this->getFullPath(self::PATH), json_encode($this->assignments));
     }
 
     public function getAll()

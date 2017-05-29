@@ -2,7 +2,7 @@
 
 class DistanceManager
 {
-    const PATH = '/var/www/localhost/data/distances.json';
+    const PATH = '../data/distances.json';
 
     private $distances = array();
     public function __construct()
@@ -10,10 +10,15 @@ class DistanceManager
         $this->loadDistances();
     }
 
+    private function getFullPath($path)
+    {
+        return __DIR__.'/'.$path;
+    }
+
     private function loadDistances()
     {
-        if (file_exists(self::PATH)) {
-            $jsonString = file_get_contents(self::PATH);
+        if (file_exists($this->getFullPath(self::PATH))) {
+            $jsonString = file_get_contents($this->getFullPath(self::PATH));
             if ($jsonString !== false) {
                 $this->distances = json_decode($jsonString, true);
             }

@@ -8,6 +8,6 @@ if (isset($_REQUEST['t'])) {
     $mngr->save();
 }
 
-$redirect = 'index.php';
+$redirect = './index.php';
 header('Location: '.$redirect);
 die();

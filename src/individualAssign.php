@@ -107,12 +107,12 @@ $conversion = array(
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="/notTeaching.php">Not Teaching</a></li>
-            <li><a href="/teachers.php">Select Teachers</a></li>
-            <li><a href="/companionships.php">Assign Companionship</a></li>
-            <li class="active"><a href="/individuals.php">Assign Individuals</a></li>
-            <li><a href="/currentAssignments.php">Current Assignments</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./notTeaching.php">Not Teaching</a></li>
+            <li><a href="./teachers.php">Select Teachers</a></li>
+            <li><a href="./companionships.php">Assign Companionship</a></li>
+            <li class="active"><a href="./individuals.php">Assign Individuals</a></li>
+            <li><a href="./currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -177,7 +177,7 @@ $conversion = array(
                 echo '<h3 class="panel-title">Currently Assigned</h3>';
                 echo '</div>'; //end column
                 echo '<div class="col-md-3">';
-                echo '<a class="btn btn-default" href="individualAssignSave.php?action=assignComp&amp;assignee='.$_REQUEST['id'].'&amp;comp='.$assignedCompKey.'">Keep Current Assignment</a>';
+                echo '<a class="btn btn-default" href="./individualAssignSave.php?action=assignComp&amp;assignee='.$_REQUEST['id'].'&amp;comp='.$assignedCompKey.'">Keep Current Assignment</a>';
                 echo '</div>'; //end column
 
                 echo '</div>'; //end row
@@ -347,7 +347,7 @@ $conversion = array(
                 echo '<h3 class="panel-title">#'.$i.' - Avg Distance '.round($compDistance, 3).'</h3>';
                 echo '</div>'; //end column
                 echo '<div class="col-md-2">';
-                echo '<a class="btn btn-default" href="individualAssignSave.php?action=assignComp&amp;assignee='.$_REQUEST['id'].'&amp;comp='.$companionshipKey.'">Assign</a>';
+                echo '<a class="btn btn-default" href="./individualAssignSave.php?action=assignComp&amp;assignee='.$_REQUEST['id'].'&amp;comp='.$companionshipKey.'">Assign</a>';
                 echo '</div>'; //end column
 
                 echo '</div>'; //end row

@@ -18,6 +18,6 @@ if (isset($_REQUEST['action'])) {
     $mngr->save();
 }
 
-$redirect = 'individuals.php';
+$redirect = './individuals.php';
 header('Location: '.$redirect);
 die();

@@ -55,12 +55,12 @@ $cmngr = new CompanionshipManager();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="/notTeaching.php">Not Teaching</a></li>
-            <li><a href="/teachers.php">Select Teachers</a></li>
-            <li class="active"><a href="/companionships.php">Assign Companionship</a></li>
-            <li><a href="/individuals.php">Assign Individuals</a></li>
-            <li><a href="/currentAssignments.php">Current Assignments</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./notTeaching.php">Not Teaching</a></li>
+            <li><a href="./teachers.php">Select Teachers</a></li>
+            <li class="active"><a href="./companionships.php">Assign Companionship</a></li>
+            <li><a href="./individuals.php">Assign Individuals</a></li>
+            <li><a href="./currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -105,7 +105,7 @@ if (!empty($males) && !empty($teachers)) {
                 echo '<td>&nbsp;</td>';
             }
             echo '<td scope="row">'.$mngr->getMemberByID($id)->Name.'</td>';
-            echo '<td><a class="btn btn-default" href="companionAssign.php?id='.$id.'">Assign Companion</a></td>';
+            echo '<td><a class="btn btn-default" href="./companionAssign.php?id='.$id.'">Assign Companion</a></td>';
             echo '</tr>';
         }
     }
@@ -158,7 +158,7 @@ if (!empty($companionships)) {
                 echo '</div>'; //row
 
                 echo '<div class="row">';
-                echo '<div><a class="btn btn-default" href="companionshipSave.php?action=rmFromCompanionship&amp;id='.$id.'">Remove from Companionship</a></div>';
+                echo '<div><a class="btn btn-default" href="./companionshipSave.php?action=rmFromCompanionship&amp;id='.$id.'">Remove from Companionship</a></div>';
                 echo '</div>'; //row
 
                 echo '</div>'; //panelbody

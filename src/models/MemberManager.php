@@ -4,18 +4,24 @@ include_once 'Member.php';
 
 class MemberManager
 {
-    const PATH = '/var/www/localhost/data/members.json';
+    const PATH = '../data/members.json';
 
     private $members = array();
+
     public function __construct()
     {
         $this->loadMembers();
     }
 
+    private function getFullPath($path)
+    {
+        return __DIR__.'/'.$path;
+    }
+
     private function loadMembers()
     {
-        if (file_exists(self::PATH)) {
-            $jsonString = file_get_contents(self::PATH);
+        if (file_exists($this->getFullPath(self::PATH))) {
+            $jsonString = file_get_contents($this->getFullPath(self::PATH));
             if ($jsonString !== false) {
                 $arrayMembers = json_decode($jsonString, true);
                 $this->loopThroughMembersArray($arrayMembers);

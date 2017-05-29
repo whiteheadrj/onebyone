@@ -18,6 +18,6 @@ if (isset($_REQUEST['action'])) {
     $mngr->save();
 }
 
-$redirect = 'companionships.php';
+$redirect = './companionships.php';
 header('Location: '.$redirect);
 die();

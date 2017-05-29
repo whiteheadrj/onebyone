@@ -19,6 +19,6 @@ if (isset($_REQUEST['nt'])) {
     $mngr->save();
 }
 
-$redirect = 'index.php';
+$redirect = './index.php';
 header('Location: '.$redirect);
 die();

@@ -47,11 +47,11 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="/notTeaching.php">Not Teaching</a></li>
-            <li><a href="/teachers.php">Select Teachers</a></li>
-            <li><a href="/companionships.php">Assign Companionship</a></li>
-            <li><a href="/individuals.php">Assign Individuals</a></li>
-            <li><a href="/currentAssignments.php">Current Assignments</a></li>
+            <li><a href="./notTeaching.php">Not Teaching</a></li>
+            <li><a href="./teachers.php">Select Teachers</a></li>
+            <li><a href="./companionships.php">Assign Companionship</a></li>
+            <li><a href="./individuals.php">Assign Individuals</a></li>
+            <li><a href="./currentAssignments.php">Current Assignments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -61,11 +61,11 @@
 
       <div class="starter-template">
         <ul>
-            <li><a href="/notTeaching.php">Mark Not Teaching</a></li>
-            <li><a href="/teachers.php">Select Teachers</a></li>
-            <li><a href="/companionships.php">Assign Companionship</a></li>
-            <li><a href="/individuals.php">Assign Individuals</a></li>
-            <li><a href="/currentAssignments.php">Current Assignments</a></li>
+            <li><a href="./notTeaching.php">Mark Not Teaching</a></li>
+            <li><a href="./teachers.php">Select Teachers</a></li>
+            <li><a href="./companionships.php">Assign Companionship</a></li>
+            <li><a href="./individuals.php">Assign Individuals</a></li>
+            <li><a href="./currentAssignments.php">Current Assignments</a></li>
         </ul>
       </div>
 
