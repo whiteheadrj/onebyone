@@ -124,7 +124,7 @@ if (!empty($companionships)) {
         $compMapData = array();
         $compMapData['teachees'] = array();
         $compMapData['key'] = $companionshipKey;
-        echo '<div class="panel panel-default">';
+        echo '<div class="panel panel-default companionship">';
         echo '<div class="panel-heading">';
         echo '<h3 class="panel-title">#'.$i.' -- '.count($sortedTeachees).' ASSIGNED</h3>';
         echo '</div>'; //end panel-heading
@@ -144,9 +144,9 @@ if (!empty($companionships)) {
                         'Long' => $mem->Long,
                     );
             if ($companionCount == 3) {
-                echo '<div class="col-md-4">';
+                echo '<div class="col-md-4 col-print-4">';
             } else {
-                echo '<div class="col-md-6">';
+                echo '<div class="col-md-6 col-print-6">';
             }
             echo '<div class="panel panel-default">';
             echo '<div class="panel-heading">';
@@ -169,14 +169,14 @@ if (!empty($companionships)) {
                     echo '<div class="row">';
             if (!empty($mem->Photo1) || !empty($mem->Photo2)) {
                 if (!empty($mem->Photo1) && !empty($mem->Photo2)) {
-                    echo '<div class="col-md-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo1.'" /></a></div>';
-                    echo '<div class="col-md-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo2.'" /></a></div>';
+                    echo '<div class="col-md-6 col-print-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo1.'" /></a></div>';
+                    echo '<div class="col-md-6 col-print-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo2.'" /></a></div>';
                 } elseif (!empty($mem->Photo1)) {
-                    echo '<div class="col-md-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo1.'" /></a></div>';
-                    echo '<div class="col-md-6">&nbsp;</div>';
+                    echo '<div class="col-md-6 col-print-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo1.'" /></a></div>';
+                    echo '<div class="col-md-6 col-print-6">&nbsp;</div>';
                 } else {
-                    echo '<div class="col-md-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo2.'" /></a></div>';
-                    echo '<div class="col-md-6">&nbsp;</div>';
+                    echo '<div class="col-md-6 col-print-6"><a href="#" class="pop"><img class="listImage" src="'.$mem->Photo2.'" /></a></div>';
+                    echo '<div class="col-md-6 col-print-6">&nbsp;</div>';
                 }
             }
             echo '</div>'; //row
@@ -193,7 +193,7 @@ if (!empty($companionships)) {
         echo '</div>'; //row
 
         if (!empty($sortedTeachees)) {
-            echo '<div class="row">';
+            echo '<div class="row teachees">';
 
             echo '<div class="table-responsive">';
             echo '<table class="table">';
