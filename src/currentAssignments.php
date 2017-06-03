@@ -110,7 +110,7 @@ $conversion = array(
     </nav>
 
     <div class="container">
-        <h2>Current Assignments</h2>
+        <h2 class="no-print">Current Assignments</h2>
 <?php
 
 if (!empty($companionships)) {
@@ -243,7 +243,7 @@ if (!empty($companionships)) {
                     echo '<td>&nbsp;</td>';
                     echo '<td>&nbsp;</td>';
                 }
-                echo '<td>'.$mem->Name.'</td>';
+                echo '<td>'.$mem->Name.'<br>'.$mem->Gender.'<br>'.$mem->Birthday.'</td>';
                 echo '<td>';
                 echo $mem->Address1;
                 if (!empty($mem->Address2)) {

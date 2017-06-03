@@ -11,25 +11,38 @@ img.listImage{
 .boldText{
 	font-weight: bold;
 }
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: left;
+}
+img.listImage{
+    max-width:100px;
+}
+.boldText{
+    font-weight: bold;
+}
 
 @page {
     size: letter;
-    margin: 0;
+    margin: .25in .5in .25in .5in;
 }
 @media print {
 
-.col-print-1 {width:8%;  float:left;}
-.col-print-2 {width:16%; float:left;}
-.col-print-3 {width:25%; float:left;}
-.col-print-4 {width:33%; float:left;}
-.col-print-5 {width:42%; float:left;}
-.col-print-6 {width:50%; float:left;}
-.col-print-7 {width:58%; float:left;}
-.col-print-8 {width:66%; float:left;}
-.col-print-9 {width:75%; float:left;}
-.col-print-10{width:83%; float:left;}
-.col-print-11{width:92%; float:left;}
-.col-print-12{width:100%; float:left;}
+    .col-print-1 {width:8%;  float:left;}
+    .col-print-2 {width:16%; float:left;}
+    .col-print-3 {width:25%; float:left;}
+    .col-print-4 {width:33%; float:left;}
+    .col-print-5 {width:42%; float:left;}
+    .col-print-6 {width:50%; float:left;}
+    .col-print-7 {width:58%; float:left;}
+    .col-print-8 {width:66%; float:left;}
+    .col-print-9 {width:75%; float:left;}
+    .col-print-10{width:83%; float:left;}
+    .col-print-11{width:92%; float:left;}
+    .col-print-12{width:100%; float:left;}
     .page {
         margin: 0;
         border: initial;
@@ -41,13 +54,21 @@ img.listImage{
         page-break-after: always;
     }
     img.listImage{
-	    	max-width:1.5in;
-	    	max-height:1.5in;
-	}
-	div.teachees { 
-		page-break-after:always; 
-	}
+        max-width:1.5in;
+        max-height:1.5in;
+    }
+    div.teachees { 
+        page-break-after:always; 
+    }
     .companionship{
         border:none;
+    }
+    body  
+    {
+        margin: ;  
+    }
+    .no-print, .no-print *
+    {
+        display: none !important;
     }
 }
