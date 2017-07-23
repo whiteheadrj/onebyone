@@ -60,6 +60,10 @@ class CompanionshipManager
                 $this->companionships[$key] = array_diff($this->companionships[$key], array($individualID));
                 sort($this->companionships[$key]);
             }
+
+            if ($this->getCountOfCompanionsByKey($key) == 0) {
+                unset($this->companionships[$key]);
+            }
         }
     }
 
@@ -67,6 +71,10 @@ class CompanionshipManager
     {
         if (in_array($individualID, $this->companionships[$companionshipsID])) {
             $this->companionships[$companionshipsID] = array_diff($this->companionships[$companionshipsID], array($individualID));
+
+            if ($this->getCountOfCompanionsByKey($companionshipsID) == 0) {
+                unset($this->companionships[$companionshipsID]);
+            }
         }
     }
 
@@ -116,5 +124,14 @@ class CompanionshipManager
         }
 
         return '';
+    }
+
+    public function getCountOfCompanionsByKey($companionshipID)
+    {
+        if (array_key_exists($companionshipID, $this->companionships)) {
+            return count($this->companionships[$companionshipID]);
+        }
+
+        return 0;
     }
 }

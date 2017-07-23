@@ -26,4 +26,5 @@ class Member
     public $BirthdayLevel;
     public $Priesthood;
     public $MoveInDate;
+    public $Active;
 }

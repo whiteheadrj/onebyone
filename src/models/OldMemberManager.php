@@ -2,9 +2,9 @@
 
 include_once 'Member.php';
 
-class MemberManager
+class OldMemberManager
 {
-    const PATH = '../data/members.json';
+    const PATH = '../data/oldMembers.json';
 
     private $members = array();
 
@@ -71,11 +71,6 @@ class MemberManager
         return null;
     }
 
-    public function addMember(member $m)
-    {
-        $this->members[$m->LDSOrgID] = $m;
-    }
-
     public function countOfMembers()
     {
         return count($this->members);
@@ -114,9 +109,7 @@ class MemberManager
     {
         $name = array();
         foreach ($this->members as $m) {
-            if ($m->Active) {
-                $name[$m->Name] = $m->LDSOrgID;
-            }
+            $name[$m->Name] = $m->LDSOrgID;
         }
         ksort($name);
 
@@ -144,10 +137,5 @@ class MemberManager
         sort($names);
 
         return implode('/', $names);
-    }
-
-    public function save()
-    {
-        file_put_contents($this->getFullPath(self::PATH), json_encode($this->members));
     }
 }
