@@ -5,3 +5,5 @@ docker/.env
 !src/data/.gitignore
 !src/photos/.gitignore
 !docker/mysql-data/.gitignore
+.DS_Store
+src/.DS_Store
